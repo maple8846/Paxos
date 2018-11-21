@@ -1,0 +1,42 @@
+syntax = "proto3";
+package pb;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+service Master {
+    rpc Register (RegisterRequest) returns (RegisterResponse) {
+    }
+    rpc GetReplicaList (google.protobuf.Empty) returns (GetReplicaRequestResponse) {
+    }
+}
+
+message RegisterRequest {
+    string Ip = 1;
+    int32 Port = 2;
+}
+
+
+message SingleReplicaInfo {
+    string Ip = 1;
+    int32  Port= 2;
+} 
+
+message RegisterResponse {
+   repeated SingleReplicaInfo ReplicaInfo = 1;
+}
+
+
+message GetReplicaRequestResponse {
+  repeated SingleReplicaInfo ReplicaInfo = 1;
+}
+
+
+
+
+
+
+
+
+
+

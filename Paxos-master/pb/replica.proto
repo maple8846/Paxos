@@ -1,0 +1,37 @@
+syntax = "proto3";
+package pb;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+service Replica {
+    rpc Prepare (PrepareRequest) returns (PrepareResponse) {
+    }
+    rpc Accept (AcceptRequest) returns (AcceptResponse) {
+    }
+    rpc Accept (PropsoseRequest) returns (PropsoseResponse) {
+    }
+}
+
+message PrepareRequest {
+    string Ip = 1;
+    int32 Port = 2;
+}
+
+message PropsoseRequest {
+    int32 Id = 1;
+    int32 Optype = 2;
+    int32 Key = 3;
+    int32 Value = 4;
+}
+
+
+message PropsoseResponse {
+
+}
+
+
+
+
+
+
